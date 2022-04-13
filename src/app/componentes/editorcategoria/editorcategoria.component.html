@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3>Editor de Categoria</h3>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="mode == 0">
+        <div class="col-12">
+            <p>Inserindo nova categoria</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="mb-3">
+                <label for="txtNomeCategoria" class="form-label">Nome da Categoria</label>
+                <input type="text" class="form-control" id="txtNome" [(ngModel)]="categoria.nome">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-primary" (click)="atualizarCategoria();">Atualizar Categoria</button>
+        </div>
+
+        <div class="col-6">
+            <button class="btn btn-primary" routerLink="/categorias">Voltar</button>
+        </div>
+    </div>
+</div> 
