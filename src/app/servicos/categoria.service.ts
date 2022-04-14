@@ -14,7 +14,7 @@ export class CategoriaService {
     token = localStorage.getItem("PVLP");
 
     let header = {
-      'Authorization0': token
+      'Authorization': token
     }
     return this.http.get("http://localhost:8080/categoriabyid", { headers: header});
   }
@@ -24,7 +24,7 @@ export class CategoriaService {
     token = localStorage.getItem("PVLP");
 
     let header = {
-      'Authorization0': token
+      'Authorization': token
     }
     return this.http.get("http://localhost:8080/categoria/" + id, { headers: header});
   }
@@ -34,7 +34,7 @@ export class CategoriaService {
     token = localStorage.getItem("PVLP");
 
     let header = {
-      'Authorization0': token
+      'Authorization': token
     }
     return this.http.post("http://localhost:8080/categoria", categoria, { headers: header });
   }
@@ -44,7 +44,7 @@ export class CategoriaService {
     token = localStorage.getItem("PVLP");
 
     let header = {
-      'Authorization0': token
+      'Authorization': token
     }
     return this.http.put("http://localhost:8080/categoria", categoria, { headers: header });
   }

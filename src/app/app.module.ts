@@ -10,6 +10,9 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { CategoriasComponent } from './componentes/categorias/categorias.component';
 import { EditorcategoriaComponent } from './componentes/editorcategoria/editorcategoria.component';
+import { EditorprodutosComponent } from './componentes/editorprodutos/editorprodutos.component';
+import { ProdutosComponent } from './componentes/produtos/produtos.component';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +22,8 @@ import { EditorcategoriaComponent } from './componentes/editorcategoria/editorca
     DashboardComponent,
     CategoriasComponent,
     EditorcategoriaComponent,
+    EditorprodutosComponent,
+    ProdutosComponent,
   ],
   imports: [
     BrowserModule,
