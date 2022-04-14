@@ -21,11 +21,29 @@ export class ProdutosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public destaca(id: number) {
-    console.log("Destacando = " + id);
+  public destaca(produto: Produto) {
+    //console.log("Destacando = " + produto.id + " destaq. = " + produto.destaque);
+    produto.destaque = (produto.destaque)? 1:0;
+    this.service.atualizarProduto(produto).subscribe(
+      (res: Produto) => {
+        console.log("Produto " + res);
+      },
+      (err) => {
+        alert("Erro ao atualizar destaque do produto " + produto.nome);
+      }
+    );
   }
 
-  public disponibiliza(id: number) {
-    console.log("Dispinibilizando = " + id);
+  public disponibiliza(produto: Produto) {
+    produto.disponivel = (produto.disponivel)? 1:0;
+    //console.log("Dispinibilizando = " + produto.id + " disp. = " + produto.disponivel);
+    this.service.atualizarProduto(produto).subscribe(
+      (res: Produto) => {
+        console.log("Produto " + res);
+      },
+      (err) => {
+        alert("Erro ao atualizar disponibilidade do produto " + produto.nome);
+      }
+    );
   }
 }

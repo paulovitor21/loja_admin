@@ -17,6 +17,9 @@
                 <a class="nav-link" routerLink='/produtos'><i class="fas fa-box-open fa-2x"></i>Produtos</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" routerLink='/pedidos'><i class="far fa-file-alt fa-2x"></i>Pedidos</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-users fa-2x"></i>Clientes</a>
               </li>
               <li class="nav-item">
@@ -26,7 +29,7 @@
                 <a class="nav-link" href="#"><i class="fas fa-key fa-2x"></i>Usuários</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-sign-out-alt fa-2x "></i>Sair</a>
+                <a class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt fa-2x "></i>Sair</a>
               </li>
             </ul>
           </div>

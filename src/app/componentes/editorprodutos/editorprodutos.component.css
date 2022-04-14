@@ -3,3 +3,7 @@
     min-height: 3em;
     margin-bottom: 1em;
 }
+
+#btnModal {
+    visibility: hidden;
+}

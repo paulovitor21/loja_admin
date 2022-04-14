@@ -1,4 +1,22 @@
 <app-navbar></app-navbar>
+
+<div class="modal fade" id="modalResultado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Resultado da Operação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{mensagemTOAST}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="fecharModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
@@ -73,7 +91,7 @@
             <div class="mb-3">
                 <label for="chkDisponivel" class="form-label">Disponível</label>
                 <div class="form-control text-center">
-                    <input type="checkbox" id="chkDisponivel" [(ngModel)]="produto.disponivel">
+                    <input type="checkbox" id="chkDisponivel" [(ngModel)]="disponivel">
                 </div>
             </div>
         </div>
@@ -83,7 +101,7 @@
                 <label for="chkDestaque" class="form-label">Em Destaque</label>
                 <div class="form-control text-center">
                     <div class="form-check form-switch">
-                        <input type="checkbox" id="chkDestaque" [(ngModel)]="produto.destaque">
+                        <input type="checkbox" id="chkDestaque" [(ngModel)]="destaque">
                     </div>
                 </div>
             </div>
@@ -95,8 +113,12 @@
             <button class="btn btn-primary" routerLink="/categorias">Voltar</button>
         </div>
         <div class="col-6 mb-3">
-            <!--(click)="atualizarCategoria();"-->
-            <button class="btn btn-primary" >Atualizar Categoria</button>
+            <button class="btn btn-primary" (click)="inserirProduto();" >Cadastrar</button>
         </div>
     </div>
 </div> 
+
+<!-- botao do modal invisível -->
+<button type="button" id="btnModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalResultado">
+    Modal
+</button> 

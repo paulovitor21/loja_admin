@@ -12,6 +12,10 @@ import { CategoriasComponent } from './componentes/categorias/categorias.compone
 import { EditorcategoriaComponent } from './componentes/editorcategoria/editorcategoria.component';
 import { EditorprodutosComponent } from './componentes/editorprodutos/editorprodutos.component';
 import { ProdutosComponent } from './componentes/produtos/produtos.component';
+import { PedidosComponent } from './componentes/pedidos/pedidos.component';
+import { ClientesComponent } from './componentes/clientes/clientes.component';
+import { RelatoriosComponent } from './componentes/relatorios/relatorios.component';
+import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 
 
 @NgModule({
@@ -24,6 +28,10 @@ import { ProdutosComponent } from './componentes/produtos/produtos.component';
     EditorcategoriaComponent,
     EditorprodutosComponent,
     ProdutosComponent,
+    PedidosComponent,
+    ClientesComponent,
+    RelatoriosComponent,
+    UsuariosComponent,
   ],
   imports: [
     BrowserModule,
