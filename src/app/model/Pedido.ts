@@ -5,6 +5,7 @@ import { ItemPedido } from "./ItemPedido";
 export class Pedido {
     public idPedido: number;
     public status: number;
+    public dataPedido: Date;
     public cliente: Cliente;
     public itensPedido: ItemPedido[];
     public valorTotal: number;
