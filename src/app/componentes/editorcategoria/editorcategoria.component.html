@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12">
             <h3>Editor de Categoria</h3>
         </div>
     </div>
@@ -21,13 +21,13 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row text-center">
         <div class="col-6">
-            <button class="btn btn-primary" (click)="atualizarCategoria();">Atualizar Categoria</button>
+            <button class="btn" routerLink="/categorias">Voltar</button>
         </div>
 
         <div class="col-6">
-            <button class="btn btn-primary" routerLink="/categorias">Voltar</button>
+            <button class="btn btn-warning" (click)="atualizarCategoria();">Cadastrar</button>
         </div>
     </div>
 </div> 

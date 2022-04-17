@@ -1,3 +1,24 @@
+
 i {
     margin-right: 10px;
+    color: #FF9400;
+}
+
+.container-fluid {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    size: 20px;
+    line-height: 30px;
+    color: #575468;
+}
+
+.navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    size: 3
+    2px;
+    line-height: 48px;
+    color: #FF9400;
 }

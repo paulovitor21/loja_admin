@@ -1,24 +1,24 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12">
             <h3>Gerenciar Categorias</h3>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12">
-            <a class="btn btn-primary" routerLink='/editorcategoria/new'>+ Nova Categoria</a>
+            <a class="btn" routerLink='/editorcategoria/new'>+ Nova Categoria</a>
         </div>
     </div>
     <table class="table table-hover table-striped">
-        <thead>
+        <thead class="cabecalho">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Categoria</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="corpo">
             <tr *ngFor="let ITEM of lista">
                 <th scope="row">{{ ITEM.id}}</th>
                 <td><a routerLink='/editorcategoria/{{ITEM.id}}'>{{ ITEM.nome}}</a></td>

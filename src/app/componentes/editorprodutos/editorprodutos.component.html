@@ -19,7 +19,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12">
             <h3>Editor de Produtos</h3>
         </div>
     </div>
@@ -35,7 +35,7 @@
             <label for="formFile" class="form-label">Selecione a foto do produto</label>
             <div class="input-group mb-3">
                 <input class="form-control" type="file" id="formFile" (change)="selectFile($event)">
-            <button type="button" class="btn btn-primary" (click)="uploadFoto()">Enviar</button>
+            <button type="button" class="btn" (click)="uploadFoto()">Enviar</button>
             </div>
           </div>
     </div>
@@ -110,15 +110,15 @@
 
     <div class="row text-center">
         <div class="col-6 mb-3">
-            <button class="btn btn-primary" routerLink="/categorias">Voltar</button>
+            <button class="btn" routerLink="/categorias">Voltar</button>
         </div>
         <div class="col-6 mb-3">
-            <button class="btn btn-primary" (click)="inserirProduto();" >Cadastrar</button>
+            <button class="btn" (click)="inserirProduto();" >Cadastrar</button>
         </div>
     </div>
 </div> 
 
 <!-- botao do modal invisível -->
-<button type="button" id="btnModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalResultado">
+<button type="button" id="btnModal" class="btn" data-bs-toggle="modal" data-bs-target="#modalResultado">
     Modal
 </button> 

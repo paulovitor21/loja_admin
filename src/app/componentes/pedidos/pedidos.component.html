@@ -1,5 +1,64 @@
 <app-navbar></app-navbar>
 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3>Gerenciar de Pedidos</h3>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nº</th>
+                <th scope="col">Data</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Total R$</th>
+                <th scope="col">Observações</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+
+        <tbody class="dados">
+            <tr *ngFor="let ITEM of lista">
+                <td>{{ITEM.idPedido}}  <i class="fas fa-info-circle" (click)="enviarDetalhes(ITEM)"></i></td>
+                <td>{{ITEM.dataPedido | date: 'dd/MM/yyyy'}}</td>
+                <td>{{ITEM.cliente.nome}}</td>
+                <td>{{ITEM.valorTotal | currency:'BRL'}}</td>
+                <td>{{ITEM.observacoes}}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio1-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==1">
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio1-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=1"
+                            (click)="alterarStatus(ITEM,1)">
+                        <label class="btn btn-outline-primary" for="btnradio1-{{ITEM.idPedido}}"><i
+                                class="fas fa-dollar-sign"></i></label>
+
+
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio2-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==2">
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio2-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=2"
+                            (click)="alterarStatus(ITEM,2)">
+                        <label class="btn btn-outline-primary" for="btnradio2-{{ITEM.idPedido}}"><i
+                                class="fas fa-truck"></i></label>
+
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio3-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==3">
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio3-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=3"
+                            (click)="alterarStatus(ITEM,3)">
+                        <label class="btn btn-outline-primary" for="btnradio3-{{ITEM.idPedido}}"><i
+                                class="far fa-window-close"></i></label>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 <!-- modal do pedido -->
 <div class="modal fade " id="detalheModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -47,67 +106,3 @@
 <button type="button" id="btnModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detalheModal">
     Start Modal.
 </button>
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h3>Gerenciador de Pedidos</h3>
-        </div>
-    </div>
-
-    <table class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <!-- <th scope="col">ID</th> -->
-                <th scope="col">#</th>
-
-                <th scope="col">Data</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Total R$</th>
-                <th scope="col">Observações</th>
-                <th scope="col">Status</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr *ngFor="let ITEM of lista">
-                <td>{{ITEM.idPedido}}  <i class="fas fa-info-circle" (click)="enviarDetalhes(ITEM)"></i></td>
-                <td>{{ITEM.dataPedido | date: 'dd/MM/yyyy'}}</td>
-                <td>{{ITEM.cliente.nome}}</td>
-                <td><strong>{{ITEM.valorTotal | currency:'BRL'}}</strong></td>
-                <td>{{ITEM.observacoes}}</td>
-                <td>
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
-                            id="btnradio1-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==1">
-                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
-                            id="btnradio1-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=1"
-                            (click)="alterarStatus(ITEM,1)">
-                        <label class="btn btn-outline-primary" for="btnradio1-{{ITEM.idPedido}}"><i
-                                class="fas fa-dollar-sign"></i></label>
-
-
-                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
-                            id="btnradio2-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==2">
-                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
-                            id="btnradio2-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=2"
-                            (click)="alterarStatus(ITEM,2)">
-                        <label class="btn btn-outline-primary" for="btnradio2-{{ITEM.idPedido}}"><i
-                                class="fas fa-truck"></i></label>
-
-                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
-                            id="btnradio3-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==3">
-                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
-                            id="btnradio3-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=3"
-                            (click)="alterarStatus(ITEM,3)">
-                        <label class="btn btn-outline-primary" for="btnradio3-{{ITEM.idPedido}}"><i
-                                class="far fa-window-close"></i></label>
-                    </div>
-                </td>
-
-            </tr>
-
-        </tbody>
-    </table>
-</div> 

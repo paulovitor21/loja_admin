@@ -1,1 +1,61 @@
-<p>clientes works!</p>
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-3 text-center">
+            <h3>Relatório de Clientes</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col">
+                    <a [routerLink]="['/clientes']">TODOS</a>
+                </th>
+                <th class="col" *ngFor="let LETRA of listaLetras">
+                    <a [routerLink]="['/clientes']" [queryParams]="{letra:LETRA}">{{ LETRA }}</a>
+                </th>
+            </tr>
+        </thead>
+    </table>
+
+    <div class="row">
+        <div class="col-6">
+            <input type="text" id="txtKeyword" [(ngModel)]="keyword" class="form-control"
+                placeholder="Digite o nome para busca">
+        </div>
+        <div class="col-6">
+            <button type="button" id="btnBusca" class="btn btn-primary" (click)="buscarPorPalavraChave()">Buscar
+                Cliente</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="col">Nome</th>
+                <th class="col">Data Nasc</th>
+                <th class="col">WhatsApp</th>
+                <th class="col">Email</th>
+                <th class="col">Endereço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let CLI of lista">
+                <td><span *ngIf="isBirthday(CLI.dataNasc)"><i class="fas fa-birthday-cake fa-2x"></i></span> {{CLI.nome}}</td>
+                <td>{{CLI.dataNasc | date : 'dd/MM/yyyy'}}                     
+                </td>
+                <td>{{CLI.telefone}}</td>
+                <td>{{CLI.email}}</td>
+                <td>{{CLI.logradouro}} - {{CLI.numero}} <br>
+                    {{CLI.complemento}} <br>
+                    {{CLI.bairro}} - {{CLI.cidade}} <br>
+                    {{CLI.cep}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

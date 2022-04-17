@@ -1,29 +1,29 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12">
             <h3>Gerenciar Produtos</h3>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12">
-            <a class="btn btn-primary" routerLink='/editorproduto/new'>+ Novo Produto</a>
+            <a class="btn" routerLink='/editorproduto/new'>+ Novo Produto</a>
         </div>
     </div>
     <table class="table table-hover table-striped">
         <thead>
-            <tr>
+            <tr class="cabecalho">
                 <!--<th scope="col">ID</th> -->
-                <th scope="col">Foto</th>
+                <th scope="col"></th>
                 <th scope="col">Nome</th>
                 <th scope="col">Preço</th>
                 <th scope="col">Categoria</th>
-                <th scope="col">Em Destaque</th>
+                <th scope="col">Destaque</th>
                 <th scope="col">Disponível</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="corpo">
             <tr *ngFor="let ITEM of lista">
                <!-- <th scope="row">{{ ITEM.id}}</th> -->
                 <td> <img src="{{ ITEM.linkFoto }}" height="35px"></td>

@@ -10,9 +10,40 @@
 }
 
 #sim{
-  color: BLUE;
+  color: #FF9400;
 }
 
 #nao{
     color: gray;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 48px;
+    color: #575468;
+}
+
+th {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: #575468;
+}
+
+.dados {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 26px;
+    color: #575468;
+}
+
+.btn {
+    color: #FF9400;
 }

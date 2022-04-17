@@ -1,19 +1,21 @@
 <div id="background">
     <main class="form-signin">
 
-            <div id="imagem" class="d-flex justify-content-center"><img class="mb-4" src="./assets/logo-mega.png" alt=""
+            <div id="imagem" class="d-flex justify-content-center"><img class="mb-4" src="./assets/logo-admin.PNG" alt=""
                     height="57"></div>
-            <h1 class="h3 mb-3 fw-normal text-center">Área Administrativa</h1>
+            <h3 class="h3 mb-3 fw-normal">Acessar sua conta</h3>
 
+            <label for="floatingInput">Nome de Usuário</label>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" [(ngModel)]="usuario.username">
-                <label for="floatingInput">Seu Login</label>
+                
+                <input type="text" class="form-control" id="floatingInput" placeholder="Digite aqui" [(ngModel)]="usuario.username">
+                
             </div>
+            <label for="floatingPassword">Senha</label>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="usuario.senha">
-                <label for="floatingPassword">Sua Senha</label>
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Digite aqui" [(ngModel)]="usuario.senha">
             </div>
             
-            <button class="w-100 btn btn-lg btn-primary" (click)="autenticar();">Conectar-se</button>
+            <button class="w-100 btn btn-lg" (click)="autenticar();">Entrar</button>
     </main>
 </div> 
