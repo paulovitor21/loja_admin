@@ -16,6 +16,8 @@ import { PedidosComponent } from './componentes/pedidos/pedidos.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
 import { RelatoriosComponent } from './componentes/relatorios/relatorios.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
+import { EditorusuarioComponent } from './componentes/editorusuario/editorusuario.component';
+import { GraficovendasComponent } from './componentes/graficovendas/graficovendas.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
     ClientesComponent,
     RelatoriosComponent,
     UsuariosComponent,
+    EditorusuarioComponent,
+    GraficovendasComponent,
   ],
   imports: [
     BrowserModule,

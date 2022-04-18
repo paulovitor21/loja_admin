@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3>Editar Usuario</h3>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="txtNome" class="form-label">Nome Completo</label>
+        <input type="text" class="form-control" id="txtNome" [(ngModel)] = "usuario.nome" maxlength="50">
+    </div>
+    <div class="mb-3">
+        <label for="txtEmail" class="form-label">Email</label>
+        <input type="text" class="form-control" id="txtEmail" maxlength="50" [(ngModel)]="usuario.email" (keyup)="sugereUsername()">
+    </div>
+    <div class="mb-3">
+        <label for="txtUsername" class="form-label">Username</label>
+        <input type="text" class="form-control" id="txtUsername" maxlength="50" [(ngModel)]="usuario.username">
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="mb-3">
+                <label for="txtSenha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="txtSenha" maxlength="50" [(ngModel)] = "usuario.senha">
+            </div>
+        </div>
+        <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="mb-3">
+                <label for="txtReSenha" class="form-label">Confirme a Senha</label>
+                <input type="password" class="form-control" id="txtReSenha" maxlength="50" (keyup)="confereSenha()" [(ngModel)]="senha">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h4 *ngIf="!senhasIguais ; conferem " style="color:red">Senhas não conferem</h4>
+            <ng-template #conferem> Agora sim! </ng-template>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-6 mb-3">
+            <button class="btn" routerLink="/categorias">Voltar</button>
+        </div>
+        <div class="col-6 mb-3">
+            <button class="btn" (click)="atualizarUsuario()">Cadastrar</button>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Button trigger modal -->
+<button id="btnModal" style="visibility:hidden;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    ...
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Resultado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{ msgResultado }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="voltarOuFicar()">Fechar</button>          
+        </div>
+      </div>
+    </div>
+  </div> 

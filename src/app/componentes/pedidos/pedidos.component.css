@@ -45,5 +45,11 @@ th {
 }
 
 .btn {
-    color: #FF9400;
+    background-color: #FF9400;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
 }

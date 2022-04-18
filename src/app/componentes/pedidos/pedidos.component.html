@@ -7,6 +7,37 @@
         </div>
     </div>
 
+    <div class="row mb-3">
+        <div class="col-sx-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+            <label for="divIni" class="d-flex justify-content-center">Data de Início</label>
+            <input type="date" class="form-control" id="txtDataIni">
+        </div>
+
+        <div class="col-sx-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+            <label for="divFim" class="d-flex justify-content-center">Data de Fim</label>
+            <input type="date" class="form-control" id="txtDataFim">
+        </div>
+
+        <div class="col-sx-12 col-sm-12 col-md-4 col-lg-4 col-xl-6">
+            <label for="txtNomeCli" class="d-flex justify-content-center">Nome do Cliente</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="col-sx-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+            <label for="checks" class="d-flex justify-content-center">Status</label>
+            <div id="checks">
+                <input type="checkbox" class="btn-check" id="chkPago"> <label class="btn" for="chkPago"><i class="fas fa-dollar-sign"></i></label>
+                <input type="checkbox" class="btn-check" id="chkEntr"> <label class="btn" for="chkEntr"><i class="fas fa-truck"></i></label>
+                <input type="checkbox" class="btn-check" id="chkCanc"> <label class="btn" for="chkCanc"><i class="fas fa-window-close"></i></label>
+            </div>
+        </div>
+
+        <div class="col-sx-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+            <button type="button" class="btn">Filtar</button>
+        </div>
+    </div>
+    
+
     <table class="table table-striped">
         <thead>
             <tr>

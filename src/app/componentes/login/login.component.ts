@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("PVLP", res.token);
         this.route.navigate(['/dashboard']);
       },
-      (err) => {
-        console.log("Erro no login")
+      (err: any) => {
+        document.getElementById("btnModal").click();
       }
     );
   }
