@@ -1,98 +1,219 @@
 <app-navbar></app-navbar>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-12">
-            <h3>Gerenciar de Pedidos</h3>
+        <div class="col-12 text-center">
+            <h3>Gerenciar Pedidos</h3>
         </div>
     </div>
 
-    <div class="row mb-3">
-        <div class="col-sx-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-            <label for="divIni" class="d-flex justify-content-center">Data de Início</label>
-            <input type="date" class="form-control" id="txtDataIni">
-        </div>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Aplicar Filtros
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <!-- div do filtro -->
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                            <label for="divIni" class="d-flex justify-content-center">Data de Inicio</label>
+                            <!---->
+                            <input type="date" class="form-control" id="txtDataIni" [(ngModel)]="filtroPedido.dataInicio">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                            <label for="divIni" class="d-flex justify-content-center">Data de Fim</label>
+                            <input type="date" class="form-control" id="txtDataFim" [(ngModel)]="filtroPedido.dataFim">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            <label for="txtNomeCli" class="d-flex justify-content-center">Nome do Cliente </label>
+                            <input type="text" class="form-control" [(ngModel)]="filtroPedido.nome">
+                        </div>
 
-        <div class="col-sx-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-            <label for="divFim" class="d-flex justify-content-center">Data de Fim</label>
-            <input type="date" class="form-control" id="txtDataFim">
-        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            <label for="checks" class="d-flex justify-content-center">Status</label>
+                            <div id="checks" class="d-flex justify-content-center">
+                                <!-- filtro 0 NOVO
+                                <input type="checkbox" name="chkNovo" value="1" class="btn-check" id="chkNovo"
+                                    autocomplete="off" [(ngModel)]="filtroPedido.novo">
+                                <label class="btn btn-outline-primary" for="chkNovo"><i
+                                        class="far fa-clipboard"></i></label>
+                                -->
+                                <!-- filtro 1 PAGO-->
+                                <input type="checkbox" name="chkPago" value="1" class="btn-check" id="chkPago"
+                                    autocomplete="off" [(ngModel)]="filtroPedido.pago">
+                                <label class="btn btn-outline-primary" for="chkPago"><i
+                                        class="fas fa-dollar-sign"></i></label>
 
-        <div class="col-sx-12 col-sm-12 col-md-4 col-lg-4 col-xl-6">
-            <label for="txtNomeCli" class="d-flex justify-content-center">Nome do Cliente</label>
-            <input type="text" class="form-control">
-        </div>
+                                <!-- filtro 2 TRANSPORTE
+                                <input type="checkbox" name="chkTransp" value="1" class="btn-check" id="chkTransp"
+                                    autocomplete="off" [(ngModel)]="filtroPedido.transporte">
+                                <label class="btn btn-outline-primary" for="chkTransp">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </label>
+                                -->
+                                <!-- filtro 3 ENTREGUE-->
+                                <input type="checkbox" name="chkEntr" value="1" class="btn-check" id="chkEntr"
+                                    autocomplete="off" [(ngModel)]="filtroPedido.entregue">
+                                <label class="btn btn-outline-primary" for="chkEntr"><i
+                                        class="fas fa-hand-holding-heart"></i></label>
 
-        <div class="col-sx-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-            <label for="checks" class="d-flex justify-content-center">Status</label>
-            <div id="checks">
-                <input type="checkbox" class="btn-check" id="chkPago"> <label class="btn" for="chkPago"><i class="fas fa-dollar-sign"></i></label>
-                <input type="checkbox" class="btn-check" id="chkEntr"> <label class="btn" for="chkEntr"><i class="fas fa-truck"></i></label>
-                <input type="checkbox" class="btn-check" id="chkCanc"> <label class="btn" for="chkCanc"><i class="fas fa-window-close"></i></label>
+                                <!-- filtro 4 POS VENDA 
+                                <input type="checkbox" name="chkPos" value="1" class="btn-check" id="chkPos"
+                                    autocomplete="off" [(ngModel)]="filtroPedido.posVenda">
+                                <label class="btn btn-outline-primary" for="chkPos">
+                                    <i class="far fa-smile-wink"></i>
+                                </label>
+                                -->
+
+                                <!-- filtro 5 FINALIZADO 
+                                <input type="checkbox" name="chkFim" value="1" class="btn-check" id="chkFim"
+                                    autocomplete="off" [(ngModel)]="filtroPedido.finalizado">
+                                <label class="btn btn-outline-primary" for="chkFim"><i
+                                        class="far fa-check-square"></i></label>
+                                -->
+                                <!-- filtro 6 CANCELADO-->
+                                <input type="checkbox" name="chkCanc" value="1" class="btn-check" id="chkCanc"
+                                    autocomplete="off" [(ngModel)]="filtroPedido.cancelado">
+                                <label class="btn btn-outline-primary" for="chkCanc">
+                                    <i  class="fas fa-window-close"></i>
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 mt-4 text-center">
+                            <button type="button" class="btn" id="btnFiltrar" (click)="filtrarPedidos()">
+                                <i class="fas fa-search"></i>
+                            </button>
+            
+                            <button type="button" class="btn" id="btnLimpar" (click)="limpar()">
+                                <i class="far fa-times-circle"></i> 
+                            </button>
+                        </div>
+                    </div>
+                    <!-- fim do filtro -->
+
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="col-sx-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-            <button type="button" class="btn">Filtar</button>
+    <div class="row">
+        <div class="col-12">
+            <h4> Total dos Pedidos: <!--{{ total | currency : 'BRL' }}--> </h4>
         </div>
     </div>
-    
-
-    <table class="table table-striped">
+    <table class="table table-hover table-striped">
         <thead>
             <tr>
-                <th scope="col">Nº</th>
+                <!-- <th scope="col">ID</th> -->
+                <th scope="col">#</th>
+
                 <th scope="col">Data</th>
                 <th scope="col">Cliente</th>
                 <th scope="col">Total R$</th>
+                <th scope="col">Frete R$</th>
+                <th scope="col">Retirar</th>
                 <th scope="col">Observações</th>
                 <th scope="col">Status</th>
             </tr>
         </thead>
 
-        <tbody class="dados">
+        <tbody>
             <tr *ngFor="let ITEM of lista">
-                <td>{{ITEM.idPedido}}  <i class="fas fa-info-circle" (click)="enviarDetalhes(ITEM)"></i></td>
+                <td>{{ITEM.idPedido}}  <i class="far fa-edit" (click)="enviarDetalhes(ITEM)"></i></td>
                 <td>{{ITEM.dataPedido | date: 'dd/MM/yyyy'}}</td>
                 <td>{{ITEM.cliente.nome}}</td>
-                <td>{{ITEM.valorTotal | currency:'BRL'}}</td>
-                <td>{{ITEM.observacoes}}</td>
+                <td><strong>{{ITEM.valorTotal | currency:'BRL'}}</strong> </td>
+                <td> <!-- <strong>{{ITEM.valorFrete | currency:'BRL'}}</strong> --> </td>
+                <td> <!--<span id="nao" *ngIf="ITEM.retirar==0">Não</span> -->
+                    <span id="sim">Sim</span></td> <!-- *ngIf="ITEM.retirar==1"-->         
+                <td> <!--{{ITEM.observacoes}} --></td>
                 <td>
+
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <!-- status novo 
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio1-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==1">
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio1-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=1"
                             (click)="alterarStatus(ITEM,1)">
                         <label class="btn btn-outline-primary" for="btnradio1-{{ITEM.idPedido}}"><i
-                                class="fas fa-dollar-sign"></i></label>
-
-
+                                class="far fa-clipboard"></i></label>
+                        -->
+                        <!-- status pago -->
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio2-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==2">
-                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            <!--(click)="gerarFinanceiro(ITEM, 2)"-->
+                            <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio2-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=2"
-                            (click)="alterarStatus(ITEM,2)">
+                            >
                         <label class="btn btn-outline-primary" for="btnradio2-{{ITEM.idPedido}}"><i
-                                class="fas fa-truck"></i></label>
+                                class="fas fa-dollar-sign"></i></label>
 
+                        <!-- status em transporte
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio3-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==3">
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio3-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=3"
                             (click)="alterarStatus(ITEM,3)">
                         <label class="btn btn-outline-primary" for="btnradio3-{{ITEM.idPedido}}"><i
+                                class="fas fa-shipping-fast"></i></label>
+                        -->
+                        <!-- status entregue -->
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio4-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==4">
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio4-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=4"
+                            (click)="alterarStatus(ITEM,4)">
+                        <label class="btn btn-outline-primary" for="btnradio4-{{ITEM.idPedido}}"><i
+                                class="fas fa-hand-holding-heart"></i></label>
+
+                        <!-- status pos venda
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio5-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==5">
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio5-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=5"
+                            (click)="alterarStatus(ITEM,5)">
+                        <label class="btn btn-outline-primary" for="btnradio5-{{ITEM.idPedido}}"><i
+                                class="far fa-smile-wink"></i></label>
+                        -->
+
+                        <!-- status finalizado 
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio6-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==6">
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio6-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=6"
+                            (click)="alterarStatus(ITEM,6)">
+                        <label class="btn btn-outline-primary" for="btnradio6-{{ITEM.idPedido}}"><i
+                                class="far fa-check-square"></i></label>
+                        -->
+
+                        <!-- status cancelado -->
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio7-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==7">
+                        <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
+                            id="btnradio7-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=7"
+                            (click)="alterarStatus(ITEM,7)">
+                        <label class="btn btn-outline-primary" for="btnradio7-{{ITEM.idPedido}}"><i
                                 class="far fa-window-close"></i></label>
                     </div>
                 </td>
+
             </tr>
+
         </tbody>
     </table>
 </div>
 
-<!-- modal do pedido -->
-<div class="modal fade " id="detalheModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+
+
+<!-- modal do pedido 
+<div class="modal fade " id="detalheModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
@@ -100,17 +221,22 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h6>{{detalhe.cliente.nome}}</h6>
-                <strong>TOTAL:</strong> {{detalhe.valorTotal | currency: 'BRL'}}<br>
+                <h6>{{detalhe.cliente.nome}} - {{ detalhe.cliente.telefone }} </h6>
+                <strong>TOTAL:</strong> <input class="form-control" type="number" [(ngModel)]="detalhe.valorTotal"/><br>
+                <strong>FRETE:</strong> <input class="form-control" type="number" [(ngModel)]="detalhe.valorFrete"/><br>
+                <strong>RETIRAR:</strong> <select [(ngModel)]="detalhe.retirar" class="form-control">
+                    <option value="0">Não</option>
+                    <option value="1">Sim</option>                
+                </select>
                 <p><strong>Endereço:</strong> {{detalhe.cliente.logradouro}}, {{detalhe.cliente.numero}}<br>
                     {{detalhe.cliente.bairro}} - {{detalhe.cliente.cidade}} - {{detalhe.cliente.cep}}
                 </p>
-                <p><strong>Observações:</strong>{{detalhe.observacoes}}</p>
+                <p><strong>Observações:</strong> <input class="form-control" type="text" [(ngModel)]="detalhe.observacoes"/></p>
                 <hr>
                 <h6>Itens</h6>
                 <table class="table">
                     <thead>
-                        <th class="col"></th>
+                        <th class="col">Foto</th>
                         <th class="col">Produto</th>
                         <th class="col">Valor Unit</th>
                         <th class="col">Quant</th>
@@ -128,6 +254,7 @@
                 </table>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="atualizarPedido()">Atualizar Dados</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>
@@ -137,3 +264,45 @@
 <button type="button" id="btnModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detalheModal">
     Start Modal.
 </button>
+ -->
+
+<!-- modal do financeiro 
+<div class="modal fade " id="financeiroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Geração do Status Financeiro: Pedido
+                    #{{detalhe.idPedido}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <select id="selectPgto" class="form-control" [(ngModel)]="registroFinanceiro.formaPagamento.numSeq">
+                    <option *ngFor="let FORMA of formasPgto" value={{FORMA.numSeq}}>{{FORMA.descricao}}</option>
+                </select>
+                <label for="txtDataVencimento">Digite a data do vencimento</label>
+                <input type="number" id="txtDataVencimento" min="1" max="31"
+                    [(ngModel)]="registroFinanceiro.diaVencimento" class="form-control">
+
+                <label for="txtParcelas">Digite o numero de parcelas</label>
+                <input type="number" id="txtParcelas" min="1" max="10" [(ngModel)]="registroFinanceiro.totalParcelas"
+                    class="form-control">
+                <label for="selectPgto">Selecione a forma de Pagamento</label>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="gerarFluxo()">Gerar
+                    Fluxo</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+-->
+
+<!-- botao do modal do financeiro 
+<button type="button" id="btnModalFinanceiro" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#financeiroModal">
+    Start Modal.
+</button>
+-->

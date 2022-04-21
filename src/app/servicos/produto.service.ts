@@ -34,10 +34,6 @@ export class ProdutoService {
     let header = {
       'Authorization': token,
     }
-
-    let body = {
-      'body': formData
-    }
     return this.http.post("http://localhost:8080/produto/upload", formData, {headers: header});
   }
 

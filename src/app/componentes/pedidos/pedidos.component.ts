@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/model/Cliente';
+import { FiltroPedidoDTO } from 'src/app/model/FiltroPedidoDTO';
 import { Pedido } from 'src/app/model/Pedido';
 import { PedidoService } from 'src/app/servicos/pedido.service';
 
@@ -10,13 +11,15 @@ import { PedidoService } from 'src/app/servicos/pedido.service';
 })
 export class PedidosComponent implements OnInit {
 
+  public filtroPedido: FiltroPedidoDTO = new FiltroPedidoDTO();
+  
   public detalhe: Pedido = new Pedido();
   public lista: Pedido[] = [];
 
   
   constructor(private service: PedidoService) { 
     this.detalhe.cliente = new Cliente();
-    this.service.getAllPedidos().subscribe(
+    this.service.getAllPedidos(this.filtroPedido).subscribe(
       (res: Pedido[]) => {
         this.lista = res;
       },
@@ -44,6 +47,28 @@ export class PedidosComponent implements OnInit {
   public enviarDetalhes(pedido: Pedido) {
     this.detalhe = pedido;
     document.getElementById("btnModal").click();
+  }
+
+  public filtrarPedidos() {
+    this.filtroPedido.pago = (this.filtroPedido.pago)?1:0;
+    this.filtroPedido.entregue = (this.filtroPedido.entregue)?2:0;
+    this.filtroPedido.cancelado = (this.filtroPedido.cancelado)?3:0;
+    
+    console.log(this.filtroPedido);
+
+    this.service.getAllPedidos(this.filtroPedido).subscribe(
+      (res: Pedido[]) => {
+        this.lista = res;
+      }
+    );
+  }
+
+  public gerarFianceiro() {
+
+  }
+
+  public limpar(): void {
+    this.filtroPedido = new FiltroPedidoDTO();
   }
 
 }

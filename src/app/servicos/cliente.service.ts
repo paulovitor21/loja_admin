@@ -37,4 +37,14 @@ export class ClienteService {
     }
     return this.http.get("http://localhost:8080/cliente/busca/" + keyword, {headers: header});
   }
+
+  public buscarCompradores(idProduto: number) {
+    let token: string;
+    token = localStorage.getItem("PVLP");
+
+    let header = {
+      'Authorization': token
+    }
+  return this.http.get("http://localhost:8080/cliente/compras/" + idProduto, { headers: header});
+  }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CompradorDTO } from 'src/app/model/CompradorDTO';
 import { Produto } from 'src/app/model/Produto';
+import { ClienteService } from 'src/app/servicos/cliente.service';
 import { ProdutoService } from 'src/app/servicos/produto.service';
 
 @Component({
@@ -10,7 +12,10 @@ import { ProdutoService } from 'src/app/servicos/produto.service';
 export class ProdutosComponent implements OnInit {
 
   public lista: Produto[] = [];
-  constructor(private service: ProdutoService) { 
+  public compradores: CompradorDTO[] = [];
+  
+  constructor(private service: ProdutoService,
+              private cliService: ClienteService) { 
     this.service.recuperarTodos().subscribe(
       (res: Produto[]) => {
         this.lista = res;
@@ -45,5 +50,17 @@ export class ProdutosComponent implements OnInit {
         alert("Erro ao atualizar disponibilidade do produto " + produto.nome);
       }
     );
+  }
+
+  public buscarCompradores(idProduto: number) {
+    this.cliService.buscarCompradores(idProduto).subscribe(
+      (res: CompradorDTO[]) => {
+        this.compradores = res;
+        //console.log(this.compradores);
+        document.getElementById("btnModal").click();
+      },
+      (err) => { alert("erro = " + err.status) }
+    );
+    console.log(idProduto);
   }
 }
