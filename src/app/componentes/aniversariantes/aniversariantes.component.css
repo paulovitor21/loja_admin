@@ -1,9 +1,24 @@
-#graficogeral{
+#divgeral{
     border: 1px solid rgb(172, 170, 170);
     border-radius: 5px;
-    padding: 1em;
+    padding: 0.5em;
     margin-bottom: 1em;
     box-shadow: 2px 2px 5px gray;
+
+}
+
+button{
+    font-size: smaller;
+}
+
+.btn {
+    background-color: #FF9400;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    
+    line-height: 21px;
 }
 
 h4 {

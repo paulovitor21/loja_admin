@@ -47,4 +47,14 @@ export class ClienteService {
     }
   return this.http.get("http://localhost:8080/cliente/compras/" + idProduto, { headers: header});
   }
+
+  public buscarAniversariantes(mes: number) {
+    let token: string;
+    token = localStorage.getItem("PVLP");
+
+    let header = {
+      'Authorization': token
+    }
+    return this.http.get("http://localhost:8080/cliente/aniversario/" + mes, { headers: header});
+  }
 }

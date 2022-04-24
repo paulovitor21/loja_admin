@@ -14,10 +14,12 @@ import { EditorprodutosComponent } from './componentes/editorprodutos/editorprod
 import { ProdutosComponent } from './componentes/produtos/produtos.component';
 import { PedidosComponent } from './componentes/pedidos/pedidos.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
-import { RelatoriosComponent } from './componentes/relatorios/relatorios.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { EditorusuarioComponent } from './componentes/editorusuario/editorusuario.component';
 import { GraficovendasComponent } from './componentes/graficovendas/graficovendas.component';
+import { UltimospedidosComponent } from './componentes/ultimospedidos/ultimospedidos.component';
+import { AniversariantesComponent } from './componentes/aniversariantes/aniversariantes.component';
+
 
 
 @NgModule({
@@ -32,10 +34,11 @@ import { GraficovendasComponent } from './componentes/graficovendas/graficovenda
     ProdutosComponent,
     PedidosComponent,
     ClientesComponent,
-    RelatoriosComponent,
     UsuariosComponent,
     EditorusuarioComponent,
     GraficovendasComponent,
+    UltimospedidosComponent,
+    AniversariantesComponent,
   ],
   imports: [
     BrowserModule,

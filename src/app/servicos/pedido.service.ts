@@ -28,13 +28,13 @@ export class PedidoService {
     return this.http.get("http://localhost:8080/pedido/" + pedido.idPedido + "?status=" + status, { headers: header});
   }
 
-  public recuperarTotaisDaSemana() {
+  public recuperarTotaisDaSemana(inicio: string, fim: string) {
     let token = localStorage.getItem("PVLP");
 
     let header = {
       'Authorization': token
     }
-    return this.http.get("http://localhost:8080/pedido/recentes", { headers: header});
+    return this.http.get("http://localhost:8080/pedido/recentes?inicio="+inicio+"&fim="+fim, {headers: header});
   }
 
 

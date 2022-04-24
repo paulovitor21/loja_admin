@@ -1,0 +1,38 @@
+<div id="divgeral">
+    <h4 class="text-end"> Aniversariantes </h4>
+    <div id="aniversariantes" class="text-center">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn" (click)="aniv(1)">Jan</button>
+            <button type="button" class="btn" (click)="aniv(2)">Fev</button>
+            <button type="button" class="btn" (click)="aniv(3)">Mar</button>
+            <button type="button" class="btn" (click)="aniv(4)">Abr</button>
+            <button type="button" class="btn" (click)="aniv(5)">Mai</button>
+            <button type="button" class="btn" (click)="aniv(6)">Jun</button>
+            <button type="button" class="btn" (click)="aniv(7)">Jul</button>
+            <button type="button" class="btn" (click)="aniv(8)">Ago</button>
+            <button type="button" class="btn" (click)="aniv(9)">Set</button>
+            <button type="button" class="btn" (click)="aniv(10)">Out</button>
+            <button type="button" class="btn" (click)="aniv(11)">Nov</button>
+            <button type="button" class="btn" (click)="aniv(12)">Dez</button>
+        </div>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="col">Nome</th>
+                        <th class="col">Data</th>
+                        <th class="col">Whatsapp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ITEM of lista">
+                        <td>{{ITEM.nome}}</td>
+                        <td>{{ITEM.dataNasc | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{ITEM.telefone}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 

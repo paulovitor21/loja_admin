@@ -15,6 +15,7 @@ export class PedidosComponent implements OnInit {
   
   public detalhe: Pedido = new Pedido();
   public lista: Pedido[] = [];
+  public total: any;
 
   
   constructor(private service: PedidoService) { 
@@ -39,6 +40,7 @@ export class PedidosComponent implements OnInit {
         pedido.status = status;
       },
       (err) => {
+        console.log(err.status);
         alert("Erro ao alterar status do pedido");
       }
     );
@@ -59,6 +61,13 @@ export class PedidosComponent implements OnInit {
     this.service.getAllPedidos(this.filtroPedido).subscribe(
       (res: Pedido[]) => {
         this.lista = res;
+        this.total = 0;
+        this.lista.forEach(item => {
+          this.total += item.valorTotal;
+        })
+      },
+      (err) => {
+        alert("Erro ao recuperar!");
       }
     );
   }
