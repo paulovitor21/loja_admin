@@ -26,6 +26,17 @@ export class ProdutosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public prontaEntrega(produto: Produto) {
+    produto.prontaEntrega = (produto.prontaEntrega)?1:0;
+    this.service.atualizarProduto(produto).subscribe(
+      (res: Produto) => {
+        console.log("Produto" + res);
+      },
+      (err) => {
+        alert("Erro ao atualizar [pronta entrega] do produto" + produto.nome);
+      }
+    );
+  }
   public destaca(produto: Produto) {
     //console.log("Destacando = " + produto.id + " destaq. = " + produto.destaque);
     produto.destaque = (produto.destaque)? 1:0;

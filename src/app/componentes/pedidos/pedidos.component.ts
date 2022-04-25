@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/model/Cliente';
 import { FiltroPedidoDTO } from 'src/app/model/FiltroPedidoDTO';
 import { Pedido } from 'src/app/model/Pedido';
+import { StatusPedido } from 'src/app/model/StatusPedido';
 import { PedidoService } from 'src/app/servicos/pedido.service';
 
 @Component({
@@ -12,10 +13,10 @@ import { PedidoService } from 'src/app/servicos/pedido.service';
 export class PedidosComponent implements OnInit {
 
   public filtroPedido: FiltroPedidoDTO = new FiltroPedidoDTO();
-  
   public detalhe: Pedido = new Pedido();
   public lista: Pedido[] = [];
-  public total: any;
+  public total;
+  public status: StatusPedido = new StatusPedido();
 
   
   constructor(private service: PedidoService) { 
@@ -52,22 +53,22 @@ export class PedidosComponent implements OnInit {
   }
 
   public filtrarPedidos() {
-    this.filtroPedido.pago = (this.filtroPedido.pago)?1:0;
-    this.filtroPedido.entregue = (this.filtroPedido.entregue)?2:0;
-    this.filtroPedido.cancelado = (this.filtroPedido.cancelado)?3:0;
-    
+
+    this.filtroPedido.novo = (this.filtroPedido.novo) ? StatusPedido.NOVO_PEDIDO : 0;
+    this.filtroPedido.pago = (this.filtroPedido.pago) ? StatusPedido.PAGO : 0;
+    this.filtroPedido.transporte = (this.filtroPedido.transporte) ? StatusPedido.EM_TRANSPORTE : 0;
+    this.filtroPedido.entregue = (this.filtroPedido.entregue) ? StatusPedido.ENTREGUE : 0;
+    this.filtroPedido.posVenda = (this.filtroPedido.posVenda) ? StatusPedido.POS_VENDA : 0;
+    this.filtroPedido.finalizado = (this.filtroPedido.finalizado) ? StatusPedido.FINALIZDO : 0;
+    this.filtroPedido.cancelado = (this.filtroPedido.cancelado) ? StatusPedido.CANCELADO : 0;
+
     console.log(this.filtroPedido);
 
     this.service.getAllPedidos(this.filtroPedido).subscribe(
       (res: Pedido[]) => {
-        this.lista = res;
         this.total = 0;
-        this.lista.forEach(item => {
-          this.total += item.valorTotal;
-        })
-      },
-      (err) => {
-        alert("Erro ao recuperar!");
+        this.lista = res;
+        this.lista.forEach(item => { this.total += item.valorTotal; })
       }
     );
   }

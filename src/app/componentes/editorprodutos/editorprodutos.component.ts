@@ -18,6 +18,7 @@ export class EditorprodutosComponent implements OnInit {
   public produto: Produto;
   public destaque: boolean;
   public disponivel: boolean;
+  public prontaEntrega: boolean;
   public arquivo: File;
   public result: number;
   public mensagemTOAST: string;
@@ -84,6 +85,7 @@ export class EditorprodutosComponent implements OnInit {
   public inserirProduto() {
     this.produto.disponivel = (this.disponivel)?1:0;
     this.produto.destaque = (this.destaque)?1:0;
+    this.produto.prontaEntrega = (this.prontaEntrega)?1:0;
     console.log(this.produto);
     if (this.mode == 0) { // para novo produto
       this.produtoService.enviarProduto(this.produto).subscribe(
@@ -102,6 +104,7 @@ export class EditorprodutosComponent implements OnInit {
     else { // para atualizar produto
       this.produto.disponivel = (this.disponivel)?1:0;
       this.produto.destaque = (this.destaque)?1:0;
+      this.produto.prontaEntrega = (this.prontaEntrega)?1:0;
       this.produtoService.atualizarProduto(this.produto).subscribe(
         (res: Produto) => {
           this.result = 1; // sucesso

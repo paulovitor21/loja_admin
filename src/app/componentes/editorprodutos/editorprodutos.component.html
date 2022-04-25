@@ -80,14 +80,21 @@
     </div>
 
     <div class="row">
-        <div class="col-4">
+        <div class="col-3">
             <div class="mb-3">
                 <label for="txtPreco" class="form-label">Preço</label>
                 <input type="text" class="form-control" id="txtPreco" [(ngModel)]="produto.preco">
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="txtPrecoPromo" class="form-label">Preço Promocional</label>
+                <input type="text" class="form-control" id="txtPrecoPromo" [(ngModel)]="produto.precoPromo">
+            </div>
+        </div>
+
+        <div class="col-2">
             <div class="mb-3">
                 <label for="chkDisponivel" class="form-label">Disponível</label>
                 <div class="form-control text-center">
@@ -96,13 +103,22 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-2">
             <div class="mb-3">
                 <label for="chkDestaque" class="form-label">Em Destaque</label>
                 <div class="form-control text-center">
                     <div class="form-check form-switch">
                         <input type="checkbox" id="chkDestaque" [(ngModel)]="destaque">
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="mb-3">
+                <label for="chkProntaEntrega" class="form-label">Pronta Entrega</label>
+                <div class="form-control text-center">
+                    <input type="checkbox" id="chkProntaEntrega" [(ngModel)]="prontaEntrega">
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 text-left">
             <h3>Gerenciar Pedidos</h3>
         </div>
     </div>
@@ -22,8 +22,8 @@
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
                             <label for="divIni" class="d-flex justify-content-center">Data de Inicio</label>
-                            <!---->
-                            <input type="date" class="form-control" id="txtDataIni" [(ngModel)]="filtroPedido.dataInicio">
+                            <input type="date" class="form-control" id="txtDataIni"
+                                [(ngModel)]="filtroPedido.dataInicio">
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
                             <label for="divIni" class="d-flex justify-content-center">Data de Fim</label>
@@ -33,66 +33,57 @@
                             <label for="txtNomeCli" class="d-flex justify-content-center">Nome do Cliente </label>
                             <input type="text" class="form-control" [(ngModel)]="filtroPedido.nome">
                         </div>
-
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
                             <label for="checks" class="d-flex justify-content-center">Status</label>
                             <div id="checks" class="d-flex justify-content-center">
-                                <!-- filtro 0 NOVO
+                                <!-- filtro 0 NOVO-->
                                 <input type="checkbox" name="chkNovo" value="1" class="btn-check" id="chkNovo"
                                     autocomplete="off" [(ngModel)]="filtroPedido.novo">
                                 <label class="btn btn-outline-primary" for="chkNovo"><i
                                         class="far fa-clipboard"></i></label>
-                                -->
                                 <!-- filtro 1 PAGO-->
                                 <input type="checkbox" name="chkPago" value="1" class="btn-check" id="chkPago"
                                     autocomplete="off" [(ngModel)]="filtroPedido.pago">
                                 <label class="btn btn-outline-primary" for="chkPago"><i
                                         class="fas fa-dollar-sign"></i></label>
 
-                                <!-- filtro 2 TRANSPORTE
+                                <!-- filtro 2 TRANSPORTE-->
                                 <input type="checkbox" name="chkTransp" value="1" class="btn-check" id="chkTransp"
                                     autocomplete="off" [(ngModel)]="filtroPedido.transporte">
-                                <label class="btn btn-outline-primary" for="chkTransp">
-                                    <i class="fas fa-shipping-fast"></i>
-                                </label>
-                                -->
+                                <label class="btn btn-outline-primary" for="chkTransp"><i
+                                        class="fas fa-shipping-fast"></i></label>
+
                                 <!-- filtro 3 ENTREGUE-->
                                 <input type="checkbox" name="chkEntr" value="1" class="btn-check" id="chkEntr"
                                     autocomplete="off" [(ngModel)]="filtroPedido.entregue">
                                 <label class="btn btn-outline-primary" for="chkEntr"><i
                                         class="fas fa-hand-holding-heart"></i></label>
 
-                                <!-- filtro 4 POS VENDA 
+                                <!-- filtro 4 POS VENDA -->
                                 <input type="checkbox" name="chkPos" value="1" class="btn-check" id="chkPos"
                                     autocomplete="off" [(ngModel)]="filtroPedido.posVenda">
-                                <label class="btn btn-outline-primary" for="chkPos">
-                                    <i class="far fa-smile-wink"></i>
-                                </label>
-                                -->
+                                <label class="btn btn-outline-primary" for="chkPos"><i
+                                        class="far fa-smile-wink"></i></label>
 
-                                <!-- filtro 5 FINALIZADO 
+                                <!-- filtro 5 FINALIZADO -->
                                 <input type="checkbox" name="chkFim" value="1" class="btn-check" id="chkFim"
                                     autocomplete="off" [(ngModel)]="filtroPedido.finalizado">
                                 <label class="btn btn-outline-primary" for="chkFim"><i
                                         class="far fa-check-square"></i></label>
-                                -->
+
                                 <!-- filtro 6 CANCELADO-->
                                 <input type="checkbox" name="chkCanc" value="1" class="btn-check" id="chkCanc"
                                     autocomplete="off" [(ngModel)]="filtroPedido.cancelado">
-                                <label class="btn btn-outline-primary" for="chkCanc">
-                                    <i  class="fas fa-window-close"></i>
-                                </label>
+                                <label class="btn btn-outline-primary" for="chkCanc"><i
+                                        class="fas fa-window-close"></i></label>
                             </div>
 
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 mt-4 text-center">
-                            <button type="button" class="btn" id="btnFiltrar" (click)="filtrarPedidos()">
-                                <i class="fas fa-search"></i>
-                            </button>
-            
-                            <button type="button" class="btn" id="btnLimpar" (click)="limpar()">
-                                <i class="far fa-times-circle"></i> 
-                            </button>
+                            <button type="button" class="btn btn-primary" id="btnFiltrar" (click)="filtrarPedidos()"><i
+                                    class="fas fa-search"></i></button>
+                            <button type="button" class="btn btn-primary" id="btnLimpar" (click)="limpar()"><i
+                                    class="far fa-times-circle"></i></button>
                         </div>
                     </div>
                     <!-- fim do filtro -->
@@ -136,7 +127,7 @@
                 <td>
 
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <!-- status novo 
+                        <!-- status novo -->
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio1-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==1">
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
@@ -144,7 +135,7 @@
                             (click)="alterarStatus(ITEM,1)">
                         <label class="btn btn-outline-primary" for="btnradio1-{{ITEM.idPedido}}"><i
                                 class="far fa-clipboard"></i></label>
-                        -->
+                        
                         <!-- status pago -->
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio2-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==2">
@@ -155,7 +146,7 @@
                         <label class="btn btn-outline-primary" for="btnradio2-{{ITEM.idPedido}}"><i
                                 class="fas fa-dollar-sign"></i></label>
 
-                        <!-- status em transporte
+                        <!-- status em transporte -->
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio3-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==3">
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
@@ -163,7 +154,7 @@
                             (click)="alterarStatus(ITEM,3)">
                         <label class="btn btn-outline-primary" for="btnradio3-{{ITEM.idPedido}}"><i
                                 class="fas fa-shipping-fast"></i></label>
-                        -->
+                        
                         <!-- status entregue -->
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio4-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==4">
@@ -173,7 +164,7 @@
                         <label class="btn btn-outline-primary" for="btnradio4-{{ITEM.idPedido}}"><i
                                 class="fas fa-hand-holding-heart"></i></label>
 
-                        <!-- status pos venda
+                        <!-- status pos venda -->
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio5-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==5">
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
@@ -181,9 +172,9 @@
                             (click)="alterarStatus(ITEM,5)">
                         <label class="btn btn-outline-primary" for="btnradio5-{{ITEM.idPedido}}"><i
                                 class="far fa-smile-wink"></i></label>
-                        -->
+                        
 
-                        <!-- status finalizado 
+                        <!-- status finalizado -->
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio6-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==6">
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
@@ -191,7 +182,7 @@
                             (click)="alterarStatus(ITEM,6)">
                         <label class="btn btn-outline-primary" for="btnradio6-{{ITEM.idPedido}}"><i
                                 class="far fa-check-square"></i></label>
-                        -->
+                        
 
                         <!-- status cancelado -->
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"

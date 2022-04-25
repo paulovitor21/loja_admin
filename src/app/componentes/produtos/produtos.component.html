@@ -21,6 +21,7 @@
                 <th scope="col">Categoria</th>
                 <th scope="col">Destaque</th>
                 <th scope="col">Disponível</th>
+                <th scope="col">Pronta Entrega</th>
                 <th scope="col">Compradores</th>
             </tr>
         </thead>
@@ -33,6 +34,7 @@
                 <td>{{ ITEM.categoria.nome }}</td>
                 <td><div class="d-flex justify-content-center form-check form-switch"><input class="form-check-input" type="checkbox" id="chkDestaque" [(ngModel)]="ITEM.destaque" (change)="destaca(ITEM)"></div></td>
                 <td><div class="d-flex justify-content-center form-check form-switch"><input class="form-check-input" type="checkbox" id="chkDisponivel" [(ngModel)]="ITEM.disponivel" (change)="disponibiliza(ITEM)"></div></td>
+                <td><div class="d-flex justify-content-center form-check form-switch"><input class="form-check-input" type="checkbox" id="chkProntaEntrega" [(ngModel)]="ITEM.prontaEntrega" (change)="prontaEntrega(ITEM)"></div></td>
                 <td><i class="fa fa-users d-flex justify-content-center" (click)="buscarCompradores(ITEM.id)"></i></td>
             </tr>
         </tbody>
